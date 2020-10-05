@@ -1,0 +1,12 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    plugins {
+        id 'io.quarkus' version "${quarkusPluginVersion}"
+        id 'io.smallrye.graphql' version '1.0.2-SNAPSHOT'
+    }
+}
+rootProject.name = 'comanda'
