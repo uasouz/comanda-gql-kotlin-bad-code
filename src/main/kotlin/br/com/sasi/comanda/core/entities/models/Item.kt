@@ -1,6 +1,8 @@
 package br.com.sasi.comanda.core.entities.models
 
-data class Item(val id: Int,
-                val name: String,
-                val price: Float,
-                val description: String)
+import com.fasterxml.jackson.annotation.JsonProperty
+
+data class Item(@JsonProperty("id") val id: Int,
+                @JsonProperty("name") val name: String,
+                @JsonProperty("price") val price: Float,
+                @JsonProperty("description") val description: String)

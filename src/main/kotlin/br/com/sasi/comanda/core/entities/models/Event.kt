@@ -11,4 +11,4 @@ data class RemoveItemEvent(val item: Item)
 data class Event(val id: String,
                  val eventType: OrderEvents,
                  val timestamp: LocalDateTime,
-                 val data: Any)
+                 val data: String)

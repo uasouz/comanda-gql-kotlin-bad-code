@@ -59,8 +59,11 @@ class OrderResource {
 
     @Mutation("addEvent")
     fun addEvent(orderID: Int, eventType: OrderEvents, timestamp: String, data: String): Event {
-        if (!OrderEvents.values().contains(eventType)) {
+        if (!OrderEvents.values().contains(eventType) || eventType == OrderEvents.ORDER_OPEN) {
             throw InvalidOrderEvent()
+        }
+        if(getOrderSummary(orderID).status == "closed") {
+            throw OrderAlreadyClosed()
         }
         return repository.createNewEvent(orderID, Event(
                 "", eventType, LocalDateTime.parse(timestamp, DateTimeFormatter.ISO_DATE_TIME), data
